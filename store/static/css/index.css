@@ -1,0 +1,16 @@
+body {
+background: url("../img/background.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.box {
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+
+

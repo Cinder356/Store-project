@@ -1,0 +1,56 @@
+[
+  {
+    "model": "products.category",
+    "pk": 7,
+    "fields": {
+      "name": "S7",
+      "desciption": "",
+      "image": "category_images/s7_rATbPa7.png"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 8,
+    "fields": {
+      "name": "Aeroflot",
+      "desciption": "",
+      "image": "category_images/аэрофлот_OQZMj4I.png"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 9,
+    "fields": {
+      "name": "Pobeda",
+      "desciption": "",
+      "image": "category_images/pobeda.png"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 10,
+    "fields": {
+      "name": "RedWings",
+      "desciption": "",
+      "image": "category_images/RedWings_oPb435W.jpg"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 11,
+    "fields": {
+      "name": "Utair",
+      "desciption": "",
+      "image": "category_images/Utair.png"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 12,
+    "fields": {
+      "name": "Rossiya",
+      "desciption": "",
+      "image": "category_images/rossia.jpg"
+    }
+  }
+]
