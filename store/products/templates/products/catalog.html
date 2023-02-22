@@ -18,6 +18,7 @@
                     <h5 class="card-title">{{ product.name }}</h5>
                     <h5 class="card-title">{{ product.price }}</h5>
                     <a href="#" class="btn btn-primary">Перейти</a>
+                    <a href="{% url 'basket' product.id %}" class="btn btn-primary">В корзину</a>
                 </div>
             </div>
         </div>
@@ -25,11 +26,17 @@
 
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="{% if products.has_previous %}{% url 'paginator' category.id products.previous_page_number %} {% else %} # {% endif %}">Предыдущая</a></li>
+                <li class="page-item">
+                    <a class="page-link"
+                       href="{% if products.has_previous %}{% url 'paginator' category.id products.previous_page_number %} {% else %}#{% endif %}">Предыдущая</a>
+                </li>
                 {% for page in products.paginator.page_range %}
-                <li class="page-item"><a class="page-link" href="{% url 'paginator' category_id page %}}">{{ page }}</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'paginator' category.id page %}">{{ page }}</a>
+                </li>
                 {% endfor %}
-                <li class="page-item"><a class="page-link" href="{% if products.has_next %}{% url 'paginator' category.id products.next_page_number %} {% else %} # {% endif %}">Следующая</a></li>
+                <li class="page-item"><a class="page-link"
+                                         href="{% if products.has_next %}{% url 'paginator' category.id products.next_page_number %} {% else %} # {% endif %}">Следующая</a>
+                </li>
             </ul>
         </nav>
 
