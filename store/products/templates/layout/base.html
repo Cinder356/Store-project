@@ -8,6 +8,7 @@
     <title>{% block title %}Главная{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
           integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
             crossorigin="anonymous"></script>
@@ -20,9 +21,9 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+    <div class="container-fluid container-space">
         <a class="navbar-brand" href="{% url 'index' %}">Главная</a>
-        <span class="navbar-brand">1$ = {{ curs }} ₽</span>
+
         <div class="d-flex">
 
             <a class="navbar-brand" href="http://127.0.0.1:8000/admin/products/category/">admin</a>
@@ -34,11 +35,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
                            data-toggle="dropdown" aria-expanded="false">
+
                             <img src="{% static 'img/icon.PNG' %}" width="30" height="30"
                                  class="d-inline-block align-top" alt="" loading="lazy">
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{% url 'profile' %}">Личный кабинет</a></li>
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-mine" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{% url 'profile' user.id %}">Личный кабинет</a></li>
                             <li><a class="dropdown-item" href="#">Мои заказы</a></li>
                             {% if user.is_superuser %}
                             <li><a class="dropdown-item" href="{% url 'admin:index' %}">Админка</a></li>
@@ -53,6 +55,7 @@
             <a class="navbar-brand" href="{% url 'auth' %}">Войти</a>
             {% endif %}
         </div>
+
     </div>
 </nav>
 

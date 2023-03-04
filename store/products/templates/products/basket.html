@@ -6,32 +6,39 @@
 {% block content %}
 
 <div class="container">
+    {% if basket %}
     <h2>Корзина</h2>
-    <p class="products_amount">2 товара</p>
+    <h5 class="products_amount">{{ baskets.total_quantity }} товара</h5>
     <div class="card mb-3" style="width: 800px;">
         {% for product in basket %}
-        <div class="row g-0">
+        <div class="row g-0 object">
             <div class="col-md-4">
-                <img src="{{ product.image.url }}" alt="..." width="250px;">
+                <img src="{{ product.product.image.url }}" alt="..." width="250px;">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text">{{ product.desciption }}</p>
+                    <h5 class="card-title">{{ product.product.name }}</h5>
+                    <p class="card-text">{{ product.product.description }}</p>
+                    <h3 class="card-text">{{ product.product.price }} р</h3>
                     <p class="card-text">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">-</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">+</a></li>
+                            <li class="page-item"><a class="page-link" href="{% url 'remove_product' product.product.id %}">-</a></li>
+                            <li class="page-item"><a class="page-link" href="#">{{ product.quantity }}</a></li>
+                            <li class="page-item"><a class="page-link" href="{% url 'basket' product.product.id %}">+</a></li>
                         </ul>
                     </nav>
+                    <a class="btn btn-primary btn-buy" href="{% url 'delete_basket' product.id %}">Удалить</a>
                     <small class="text-muted">Last updated 3 mins ago</small>
                     </p>
                 </div>
             </div>
         </div>
         {% endfor %}
+        <h4>{{ baskets.total_sum }}</h4>
     </div>
+    {% else %}
+    <p>Корзина пуста</p>
+    {% endif %}
 </div>
 {% endblock %}

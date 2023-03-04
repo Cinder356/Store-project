@@ -5,9 +5,9 @@
 {% block content %}
 <div class="container">
     <div class="card bg-light mb-3">
-        <div class="card-header">Авторизация</div>
+        <div class="card-header">Регистрация</div>
         <div class="card-body">
-            <form action="{% url 'auth' %}" method="post">
+            <form action="{% url 'register' %}" method="POST">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-6">
@@ -45,11 +45,17 @@
                         <a href="#">Забыли пароль?</a>
                     </div>
                 </div>
-        </div>
-        </form>
-        <div class="card_footer">
-            <p>Есть аккаунт? <a href="{% url 'auth' %}">Войти</a></p>
+
+            </form>
+            <div class="card_footer">
+                <p>Есть аккаунт? <a href="{% url 'auth' %}">Войти</a></p>
+            </div>
         </div>
     </div>
+    {% if form.errors %}
+    <div class="error-card">
+        {{ form.errors }}
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

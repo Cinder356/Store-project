@@ -72,11 +72,11 @@ class UserProfileForm(UserChangeForm):
     }))
     image = forms.ImageField(widget=forms.FileInput(
         attrs={
-            "class": "form-control"
+            "class": "form-file-input"
         }
     ), required=False)
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email')
+        fields = ('first_name', 'last_name', 'username', 'email', 'image')
 
